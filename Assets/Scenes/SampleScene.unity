@@ -524,5 +524,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6108cde3d52b4b3e99e7b4722924a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {x: 0, y: 0, z: 0}
+  target: {fileID: 155947544}
   speed: 1
