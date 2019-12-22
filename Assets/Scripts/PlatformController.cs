@@ -72,6 +72,12 @@ public class PlatformController : MonoBehaviour {
             // next index is increased by 1 
             nextIndex++;
 
+            // array element index starts at 0 and goes all the way to lenght-1
+            if(nextIndex == targets.Length)
+            {
+                nextIndex = 0;
+            }
+
             //stop moving
             isMoving = false; 
         }
