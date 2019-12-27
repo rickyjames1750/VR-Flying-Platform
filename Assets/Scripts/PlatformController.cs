@@ -1,85 +1,58 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlatformController : MonoBehaviour {
 
-    // destinations / targets
-    public Transform[] targets; 
+	int nextIndex;
 
-    // speed
-    public float speed = 1;
+	public Transform[] targets;
 
-    // flag that sets wether we are moving or not
-    bool isMoving = false;
+	public float speed = 1;
 
-    // next destination index
-    int nextIndex;
+	bool isMoving = false;
 
-    // Use this for initialization. Start is called before the first frame update.
-    void Start() {
-        // set the player to the first target
-        transform.position = targets[0].position;
+	// Use this for initialization
+	void Start () {
+		transform.position = targets[0].position;
 
-        // next destination is 1
-        nextIndex = 1; 
-        
-    }
+		nextIndex = 1;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		HandleInput ();
 
-    // Update is called once per frame
-    void Update() {
-        // Check for input
-        HandleInput(); 
+		HandleMovement ();
+	}
 
+	void HandleMovement(){
 
-        // Move our platform
-        HandleMovement();
-    }
+		if (!isMoving)
+			return;
 
-    void HandleInput()
-    {
-        //check for Fire1 axis
-        if(Input.GetButtonDown("Fire1"))
-        {
-            // negate isMoving
-            isMoving = !isMoving;
-        }
-    }
+		float distance = Vector3.Distance (transform.position, targets[nextIndex].position);
 
-    // take care of the movement
-    void HandleMovement()
-    {
-        // if we are not moving, exit
-        if (!isMoving) return;
+		if (distance > 0) {
+			float movement = speed * Time.deltaTime;
 
-        // calculate the distance from target
-        float distance = Vector3.Distance(transform.position, targets[nextIndex].position);
+			transform.position = Vector3.MoveTowards (transform.position, targets [nextIndex].position, movement);
+		} else {
 
-        // have we arrived?
-        if (distance > 0)
-        {
+			nextIndex++;
 
-            // calculate how much we need to move (step) d = v * t
-            float step = speed * Time.deltaTime;
+			isMoving = false;
 
-            // move by that step
-            transform.position = Vector3.MoveTowards(transform.position, targets[nextIndex].position, step);
-        }
-        // if we have arrived we should update nextIndex
-        else
-        {
-            // next index is increased by 1 
-            nextIndex++;
+			if (nextIndex >= targets.Length) {
+				nextIndex = 0;
+			}
 
-            // array element index starts at 0 and goes all the way to lenght-1
-            if(nextIndex == targets.Length)
-            {
-                nextIndex = 0;
-            }
+		}
+	}
 
-            //stop moving
-            isMoving = false; 
-        }
-    }
+	void HandleInput(){
+		if (Input.GetButtonDown ("Fire1")) {
+			isMoving = !isMoving;
+		}
+	}
 }

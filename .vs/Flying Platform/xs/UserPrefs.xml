@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{52012202-3402-6A19-9EB6-16FD90646143}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlatformController.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlatformController.cs" Line="11" Column="10" />
+      <File FileName="Assets/Scripts/PlatformController.cs" Line="59" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,7 +9,7 @@
           <Node name="Flying Platform" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PlatformController.cs" selected="True" />
+                <Node name="DragCamera.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -19,7 +19,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f8a59b82-e3c9-49ff-98f7-1c03ae75f27f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3133c570-c599-4970-b856-42961f5f65ca" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
